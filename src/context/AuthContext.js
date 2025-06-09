@@ -110,7 +110,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('/api/v1/auth/login', { username, password });
+      const response = await axios.post(AUTH_API.LOGIN, { username, password });
       localStorage.setItem('token', response.data.token);
       setUser(response.data.user);
       navigate('/');
@@ -123,7 +123,7 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (username, password) => {
     try {
-      const response = await axios.post('/api/v1/auth/signup', { username, password });
+      const response = await axios.post(AUTH_API.SIGNUP, { username, password });
       console.log('Signup response:', response);
       navigate('/login');
       // login(username, password);
